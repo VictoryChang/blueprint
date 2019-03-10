@@ -2,18 +2,7 @@ language: python
 python:
   - "2.7"
   - "3.6"
-stages:
-  - build
-  - test
-  - deploy
-    if: branch = master
 install:
   - pip install -r requirements.txt
-jobs:
-  include:
-    - stage: build
-      script: echo "Build"
-    - stage: test
-      script: pytest --pep8
-    - stage: deploy
-      script: echo "Deploy"
+script:
+  - pytest --pep8
