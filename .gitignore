@@ -1,2 +1,6 @@
-# PyCharm
+# general
+*.pyc
+
+# pycharm
 .idea/
+__pycache__/
