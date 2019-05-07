@@ -2,3 +2,4 @@ Click==7.0
 pandas==0.24.2
 pytest==4.0.2
 pytest-pep8==1.0.6
+requests==2.18.4
