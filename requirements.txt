@@ -1,4 +1,4 @@
 Click==7.0
-pandas==*
+pandas
 pytest==4.0.2
 pytest-pep8==1.0.6
