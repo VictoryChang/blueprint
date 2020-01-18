@@ -27,6 +27,11 @@ def play():
 
 
 def repeat(iterations=3):
+    """
+    Repeat the decorated function
+
+    :param iterations: Number of iterations
+    """
     def decorator(func):
         @functools.wraps(func)
         def wrapper(*args, **kwargs):
@@ -45,7 +50,13 @@ def sleep():
 # sleep()
 
 
-def validate_status(code):
+def validate_status(code: int):
+    """
+    Validate the status code of the decorated function result.
+    Assumes result has attribute status_code.
+
+    :param code: Expected status code
+    """
     def decorator(func):
         @functools.wraps(func)
         def wrapper(*args, **kwargs):
@@ -59,7 +70,12 @@ def validate_status(code):
     return decorator
 
 
-def retry(iterations=3):
+def retry(iterations: int = 3):
+    """
+    Retry the decorated function for n iterations until non-exception occurs
+
+    :param iterations: Number of iterations
+    """
     def decorator(func):
         @functools.wraps(func)
         def wrapper(*args, **kwargs):
