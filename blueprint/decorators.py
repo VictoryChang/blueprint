@@ -2,8 +2,6 @@ import functools
 import sys
 import time
 
-import requests
-
 
 def timer(func):
     """ Print the runtime of the decorated function """
@@ -17,16 +15,7 @@ def timer(func):
     return wrapper
 
 
-@timer
-def play():
-    print('playing')
-    time.sleep(3)
-
-
-# play()
-
-
-def repeat(iterations=3):
+def repeat(iterations: int = 3):
     """
     Repeat the decorated function
 
@@ -40,14 +29,6 @@ def repeat(iterations=3):
             return result
         return wrapper
     return decorator
-
-
-@repeat()
-def sleep():
-    print('sleeping')
-    time.sleep(3)
-
-# sleep()
 
 
 def validate_status(code: int):
@@ -92,13 +73,3 @@ def retry(iterations: int = 3):
                 raise RuntimeError(msg)
         return wrapper
     return decorator
-
-
-@retry(iterations=5)
-@validate_status(code=201)
-def value():
-    return requests.get('https://google.com')
-
-
-response = value()
-print(response.status_code)
